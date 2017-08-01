@@ -12,7 +12,7 @@ Features:
 - Can write simultenously to the standard output and to logfiles
 
 Planned features(in order of priority):
-- Need asynchronous background thread for file input operations
+- Need asynchronous solution with background thread for file input operations
 
 	Right now, the file logging procedure is synchronous, meaning the program will wait for logger's file operations to finish, before continuing.
 	Currently setFile("") can be used to disable file logging
