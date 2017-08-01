@@ -1,3 +1,12 @@
+/*
+ * -------------------------------------------------------------------------
+ * FILE:    logger.hpp
+ * AUTHOR:  Peter Toth - 2017.07.31.
+ * E-MAIL:  peter.t.toth92@gmail.com
+ * PURPOSE: Lightweight logger writing simultaneously to
+ *            std::cout and to a logfile
+ * -------------------------------------------------------------------------
+ */
 
 #define DEFINE_STREAM_OUT_OPERATOR(STREAM_OUT_VAR_1)	\
     output_channel& operator<<(STREAM_OUT_VAR_1 data){	\
