@@ -7,7 +7,7 @@ CONFIG += c++11
 INCLUDEPATH += ./include
 
 SOURCES += test/main.cpp \
-    include/logger.cpp
+    src/logger.cpp
 
 
 include(deployment.pri)
