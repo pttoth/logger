@@ -76,7 +76,7 @@ inline void CreateDirectory(const std::string& path){
                                         //  r/search for other
         //if not created and doesn't exist already, it's a relevant error
         if( !(0 == result)
-            && !((-1 == result) && (EEXIST == errno) )){
+            && !((-1 == result) && (EEXIST == errno)) ){
             std::stringstream ss;
             ss << "error creating directory: " << path << "\n"
                   << "    result(" << result << "), errno(" << errno << ")";
@@ -94,6 +94,7 @@ inline void EnsureExistingDirectory(const std::string& path){
     dir.reserve(path.size());
     size_t prev = 0;
     size_t curr = 0;
+    //create directories one by one
     while( (curr = path.find('/', prev+1)) != std::string::npos ){
         dir += path.substr(prev, curr-prev);
         CreateDirectory(dir);
@@ -108,12 +109,11 @@ void logger::output_channel::
         std::string path;
         path.reserve( strlen(dir) + strlen(filename) + 1 );
         path += dir;
-        //path += '/'; //solves possible missing slash in dir
+        //path += '/'; //solves possible missing slash in dir (can be a problem when dir is only '/')
         path += filename;
 
         if(PathIsValid(path)){
-            std::string str = path;
-            EnsureExistingDirectory(str);
+            EnsureExistingDirectory(path);
             _file = path;
         }else{
             std::string msg("invalid path or filename: ");
