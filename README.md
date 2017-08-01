@@ -18,3 +18,5 @@ Planned features(in order of priority):
 	Currently setFile("") can be used to disable file logging
 	
 - Ability to read logging configuration settings from file
+
+- Timestamps in logs (individually set for stdout and file)
