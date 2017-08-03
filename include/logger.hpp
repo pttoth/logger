@@ -54,8 +54,8 @@ namespace logger{
         output_channel(const output_channel& other)=delete;
         output_channel(output_channel&& source)=delete;
 
-        output_channel operator=(const output_channel& other)=delete;
-        output_channel operator=(output_channel&& source)=delete;
+        output_channel& operator=(const output_channel& other)=delete;
+        output_channel& operator=(output_channel&& source)=delete;
 
         void setEnabled(bool val);
         void setFile(const char *filename);
