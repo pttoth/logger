@@ -10,15 +10,19 @@
 
 #define DEFINE_STREAM_OUT_OPERATOR(STREAM_OUT_VAR_1)	\
     output_channel& operator<<(STREAM_OUT_VAR_1 data){	\
-        std::cout << data; \
-        WriteToFile<STREAM_OUT_VAR_1>(data); \
+        if( _enabled ){ \
+            std::cout << data; \
+            WriteToFile<STREAM_OUT_VAR_1>(data); \
+        } \
         return *this; \
     }
 
 #define DEFINE_STREAM_OUT_FUNC_OPERATOR(STREAM_OUT_VAR_1, FUNC_PARAMS)	\
     output_channel& operator<<(STREAM_OUT_VAR_1 (*data) FUNC_PARAMS){	\
-        std::cout << data; \
-        WriteToFile<STREAM_OUT_VAR_1 FUNC_PARAMS>(data); \
+        if( _enabled ){ \
+            std::cout << data; \
+            WriteToFile<STREAM_OUT_VAR_1 FUNC_PARAMS>(data); \
+        } \
         return *this; \
     }
 

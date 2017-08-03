@@ -22,7 +22,11 @@ void logger::init(){
         std::string filename(time);
         std::replace( filename.begin(), filename.end(), ':', '_');
         filename.append(".log");
-
+/*
+        log.setEnabled(false);
+        debug.setEnabled(false);
+        error.setEnabled(false);
+*/
         log.setFile(filename);
         debug.setFile(filename);
         error.setFile(filename);
